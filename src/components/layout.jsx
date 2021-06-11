@@ -1,5 +1,6 @@
 import React from "react";
 import Head from "next/head";
+import Nabvar from "./navbar/ Nabvar";
 
 const Layout = ({ description, title, children }) => {
   return (
