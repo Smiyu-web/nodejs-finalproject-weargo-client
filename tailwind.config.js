@@ -11,6 +11,17 @@ module.exports = {
       fontFamily: {
         vollkorn: ["Vollkorn", "sans-serif"],
       },
+      height: {
+        xl: "34rem",
+        xxl: "40rem",
+      },
+    },
+    screens: {
+      all: "0px",
+      sm: "425px",
+      md: "768px",
+      lg: "1024px",
+      xl: "1440px",
     },
   },
   variants: {

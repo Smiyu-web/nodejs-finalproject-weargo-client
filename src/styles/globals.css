@@ -4,16 +4,14 @@
 @tailwind components;
 @tailwind utilities;
 
-h1,
-p {
-  color: rgba(255, 255, 255, 1);
-}
-
 @layer base {
   html,
   body {
     @apply font-vollkorn text-darkGray select-none overflow-hidden
     w-screen m-0 p-0;
+  }
+  section {
+    @apply w-screen h-full;
   }
   h1 {
     @apply text-4xl sm:text-5xl xl:text-6xl;
@@ -45,12 +43,37 @@ p {
     border-b border-solid border-lightGray shadow;
   }
 
-  .hero_wrap {
-    @apply bg-black w-52 h-auto relative
+  /* .hero_wrap {
+    @apply bg-black relative cursor-pointer
+    w-3/5 md:w-2/5 h-96 md:h-xl xl:h-xxl
     top-20 left-0 right-0 m-auto text-center;
-  }
+  } */
 
+  /* 
   .hero_img {
-    @apply block opacity-70;
+    @apply opacity-70 h-96 md:h-xl xl:h-xxl;
+  } */
+  .boxbackground {
+    background: url("../../public/fashionTop.jpeg");
+    @apply relative w-56 h-96 bg-cover
+    top-20 left-0 right-0 m-auto;
+  }
+  .box1 {
+    @apply absolute w-56 h-96 inset-0 m-auto;
   }
 }
+/* .boxbackground {
+  position: relative;
+  width: 800px;
+  height: 500px;
+  background: url("../../public/fashionTop.jpeg");
+  background-size: cover;
+} */
+/* .box1 {
+  position: absolute;
+  width: 800px;
+  height: 300px;
+  background: rgba(0, 0, 0, 0.5);
+  text-align: center;
+  padding-top: 200px;
+} */
