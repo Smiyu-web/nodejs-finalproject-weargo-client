@@ -4,10 +4,16 @@
 @tailwind components;
 @tailwind utilities;
 
+h1,
+p {
+  color: rgba(255, 255, 255, 1);
+}
+
 @layer base {
   html,
   body {
-    @apply font-vollkorn text-darkGray select-none w-screen m-0 p-0;
+    @apply font-vollkorn text-darkGray select-none overflow-hidden
+    w-screen m-0 p-0;
   }
   h1 {
     @apply text-4xl sm:text-5xl xl:text-6xl;
@@ -37,5 +43,14 @@
     @apply fixed flex justify-between w-screen
     pt-4 pb-3 px-4 
     border-b border-solid border-lightGray shadow;
+  }
+
+  .hero_wrap {
+    @apply bg-black w-52 h-auto relative
+    top-20 left-0 right-0 m-auto text-center;
+  }
+
+  .hero_img {
+    @apply block opacity-70;
   }
 }

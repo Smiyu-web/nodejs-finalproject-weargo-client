@@ -1,11 +1,10 @@
 import React from "react";
-import Layout from "../components/layout";
-import Nabvar from "../components/navbar/ Nabvar";
+import Hero from "../components/hero/Hero";
 
 export default function Home() {
   return (
-    <Layout>
-      <Nabvar />
-    </Layout>
+    <div>
+      <Hero />
+    </div>
   );
 }

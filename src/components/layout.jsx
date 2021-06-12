@@ -10,7 +10,10 @@ const Layout = ({ description, title, children }) => {
         <meta name="og:title" content={title} />
         <title>{title}</title>
       </Head>
-      <main>{children}</main>
+      <main>
+        <Nabvar />
+        {children}
+      </main>
     </div>
   );
 };
