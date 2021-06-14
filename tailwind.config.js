@@ -12,7 +12,10 @@ module.exports = {
         vollkorn: ["Vollkorn", "sans-serif"],
       },
       height: {
-        xl: "34rem",
+        sm: "28rem",
+        md: "32rem",
+        ld: "34rem",
+        xl: "36rem",
         xxl: "40rem",
       },
     },

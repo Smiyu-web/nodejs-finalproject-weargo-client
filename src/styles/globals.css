@@ -7,7 +7,7 @@
 @layer base {
   html,
   body {
-    @apply font-vollkorn text-darkGray select-none overflow-hidden
+    @apply font-vollkorn text-darkGray select-none 
     w-screen m-0 p-0;
   }
   section {
@@ -39,41 +39,43 @@
 @layer components {
   .navbar_wrapper {
     @apply fixed flex justify-between w-screen
-    pt-4 pb-3 px-4 
+    pt-4 pb-3 px-4 z-50 bg-white
     border-b border-solid border-lightGray shadow;
   }
-
-  /* .hero_wrap {
-    @apply bg-black relative cursor-pointer
-    w-3/5 md:w-2/5 h-96 md:h-xl xl:h-xxl
-    top-20 left-0 right-0 m-auto text-center;
-  } */
-
-  /* 
-  .hero_img {
-    @apply opacity-70 h-96 md:h-xl xl:h-xxl;
-  } */
+  .hero_wrap {
+    @apply cursor-pointer pb-20;
+  }
   .boxbackground {
     background: url("../../public/fashionTop.jpeg");
-    @apply relative w-56 h-96 bg-cover
-    top-20 left-0 right-0 m-auto;
+    @apply relative bg-cover 
+    top-20 left-0 right-0 m-auto
+    w-56 h-96 md:w-72 md:h-md;
   }
   .box1 {
-    @apply absolute w-56 h-96 inset-0 m-auto;
+    @apply absolute bg-black bg-opacity-50 text-center
+    w-56 h-96 md:w-72 md:h-md flex justify-center;
+  }
+  .img_wrapper {
+    @apply relative overflow-hidden hover:opacity-100;
+  }
+  .caption {
+    @apply absolute bottom-0 right-2 text-white;
+  }
+  .mask {
+    transition: all 0.2s ease;
+    @apply absolute top-0 left-0  w-full h-full 
+    opacity-0 bg-black bg-opacity-25 hover:opacity-100;
+  }
+  .input_wrapper {
+    @apply flex flex-col p-2 pb-1 mb-2 w-56
+    border border-solid border-gray rounded-lg;
+  }
+  .btn_wrapper {
+    @apply relative border border-solid border-gray bg-gray 
+    w-24 h-10;
+  }
+  .btn {
+    @apply absolute text-white font-semibold tracking-wider  
+    inset-0 m-auto outline-none focus:outline-none;
   }
 }
-/* .boxbackground {
-  position: relative;
-  width: 800px;
-  height: 500px;
-  background: url("../../public/fashionTop.jpeg");
-  background-size: cover;
-} */
-/* .box1 {
-  position: absolute;
-  width: 800px;
-  height: 300px;
-  background: rgba(0, 0, 0, 0.5);
-  text-align: center;
-  padding-top: 200px;
-} */
