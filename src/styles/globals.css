@@ -34,6 +34,15 @@
   p {
     @apply text-sm sm:text-base xl:text-lg;
   }
+  input,
+  select,
+  option,
+  textarea {
+    @apply focus:outline-none;
+  }
+  label {
+    @apply text-xs text-gray2;
+  }
 }
 
 @layer components {
@@ -72,10 +81,20 @@
   }
   .btn_wrapper {
     @apply relative border border-solid border-gray bg-gray 
-    w-24 h-10;
+    w-24 h-10 my-8;
   }
   .btn {
     @apply absolute text-white font-semibold tracking-wider  
     inset-0 m-auto outline-none focus:outline-none;
+  }
+  .search_input {
+    @apply flex flex-col w-56 
+    border border-gray border-solid rounded-md;
+  }
+  .search_type {
+    @apply py-2 bg-white border-b border-gray border-solid;
+  }
+  .select_input {
+    @apply py-2 bg-white border border-gray border-solid;
   }
 }

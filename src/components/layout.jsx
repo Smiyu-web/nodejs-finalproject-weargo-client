@@ -1,7 +1,6 @@
 import React from "react";
 import Head from "next/head";
 import Nabvar from "./navbar/ Nabvar";
-import Footer from "./footer/Footer";
 
 const Layout = ({ description, title, children, style }) => {
   return (
@@ -14,7 +13,6 @@ const Layout = ({ description, title, children, style }) => {
       <main className={style}>
         <Nabvar />
         {children}
-        <Footer />
       </main>
     </div>
   );
