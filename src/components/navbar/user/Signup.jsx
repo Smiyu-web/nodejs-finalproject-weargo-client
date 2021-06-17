@@ -12,7 +12,7 @@ const Signup = () => {
     <div className="pt-28 flex flex-col items-center">
       <h2 className="py-6">Sign Up</h2>
       <div>
-        <form onSubmit={submit}>
+        <form>
           <InputWrapper
             title="Name"
             type="text"
@@ -37,10 +37,10 @@ const Signup = () => {
             name="confirm password"
             onChange={(e) => setConfirmPassword(e.target.value)}
           />
+          <div className="text-center">
+            <input className="input_btn" type="button" value="Sign up" />
+          </div>
         </form>
-        <div className="text-center">
-          <input className="input_btn" type="button" value="Sign up" />
-        </div>
       </div>
       <div className="text-center">
         <p>Do you already have an account?</p>
