@@ -1,6 +1,6 @@
 import React from "react";
-import Layout from "../components/layout";
-import SearchContainer from "../components/navbar/SearchContainer";
+import Layout from "../../components/layout";
+import SearchContainer from "../../components/navbar/SearchContainer";
 
 const Search = () => {
   return (

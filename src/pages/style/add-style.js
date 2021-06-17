@@ -1,6 +1,6 @@
 import React from "react";
-import Layout from "../components/layout";
-import AddStyle from "../components/outfit/AddStyle";
+import Layout from "../../components/layout";
+import AddStyle from "../../components/outfit/AddStyle";
 
 const AddStylePage = () => {
   return (

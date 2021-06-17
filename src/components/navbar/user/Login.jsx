@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import Link from "next/link";
 import Axios from "axios";
 
 const Signup = () => {
@@ -22,9 +23,10 @@ const Signup = () => {
       console.log(err.response.data.msg);
     }
   };
+
   return (
     <div className="pt-28 flex flex-col items-center">
-      <h2 className="py-6">Sign Up</h2>
+      <h2 className="py-6">Log In</h2>
       <div>
         <form onSubmit={submit}>
           <div className="input_wrapper">
@@ -51,8 +53,10 @@ const Signup = () => {
         </form>
       </div>
       <div className="text-center">
-        <p>Do you already have an account?</p>
-        <a href="">Log in</a>
+        <p>You don't have an account?</p>
+        <Link href="/user/signup">
+          <a className="a_tag">Sign up</a>
+        </Link>
       </div>
     </div>
   );

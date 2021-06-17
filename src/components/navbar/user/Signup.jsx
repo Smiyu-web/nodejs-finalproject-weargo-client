@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Button from "../../ui/Button";
+import Link from "next/link";
 import InputWrapper from "../../ui/InputWrapper";
 
 const Signup = () => {
@@ -44,7 +44,9 @@ const Signup = () => {
       </div>
       <div className="text-center">
         <p>Do you already have an account?</p>
-        <a href="">Log in</a>
+        <Link href="/user/login">
+          <a>Log in</a>
+        </Link>
       </div>
     </div>
   );

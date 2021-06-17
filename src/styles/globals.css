@@ -103,4 +103,7 @@
     text-white font-semibold tracking-wider  
     outline-none focus:outline-none;
   }
+  .a_tag {
+    @apply border-b border-gray border-solid;
+  }
 }
