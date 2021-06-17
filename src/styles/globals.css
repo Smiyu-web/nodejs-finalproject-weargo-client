@@ -97,4 +97,10 @@
   .select_input {
     @apply py-2 bg-white border border-gray border-solid;
   }
+  .input_btn {
+    @apply w-24 h-10 my-8 
+    border border-gray border-solid rounded-md bg-gray
+    text-white font-semibold tracking-wider  
+    outline-none focus:outline-none;
+  }
 }
