@@ -1,13 +1,18 @@
 import React, { useState, useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
+
 import Link from "next/link";
 import Axios from "axios";
+import { setCurrentUser, login } from "../../../features/userSlice";
 
-const Signup = () => {
+const Signup = React.forwardRef((props, ref) => {
+  const isUser = useSelector(setCurrentUser);
+  const dispatch = useDispatch();
+
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [userData, setUserData] = useState();
 
-  useEffect(() => console.log(userData), [userData]);
+  useEffect(() => console.log(isUser), [isUser]);
 
   const submit = async (e) => {
     e.preventDefault();
@@ -18,14 +23,17 @@ const Signup = () => {
         loginUser
       );
 
-      setUserData(loginRef);
+      // setUserData(loginRef);
+      dispatch(login(loginRef.data.user));
+
+      // isUser(loginRef);
     } catch (err) {
       console.log(err.response.data.msg);
     }
   };
 
   return (
-    <div className="pt-28 flex flex-col items-center">
+    <div className="pt-28 flex flex-col items-center" ref={ref}>
       <h2 className="py-6">Log In</h2>
       <div>
         <form onSubmit={submit}>
@@ -60,6 +68,6 @@ const Signup = () => {
       </div>
     </div>
   );
-};
+});
 
 export default Signup;

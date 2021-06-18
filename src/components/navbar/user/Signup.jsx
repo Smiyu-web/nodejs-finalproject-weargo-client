@@ -2,14 +2,14 @@ import React, { useState } from "react";
 import Link from "next/link";
 import InputWrapper from "../../ui/InputWrapper";
 
-const Signup = () => {
+const Signup = React.forwardRef((props, ref) => {
   const [name, setName] = useState();
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
   const [confirmPassword, setConfirmPassword] = useState();
 
   return (
-    <div className="pt-28 flex flex-col items-center">
+    <div className="pt-28 flex flex-col items-center" ref={ref}>
       <h2 className="py-6">Sign Up</h2>
       <div>
         <form>
@@ -50,6 +50,6 @@ const Signup = () => {
       </div>
     </div>
   );
-};
+});
 
 export default Signup;
