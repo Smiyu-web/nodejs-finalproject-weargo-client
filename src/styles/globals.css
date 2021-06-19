@@ -37,7 +37,8 @@
   input,
   select,
   option,
-  textarea {
+  textarea,
+  button {
     @apply focus:outline-none;
   }
   label {
@@ -108,10 +109,10 @@
   }
   .error_notice {
     @apply flex justify-between items-center bg-red-200
-    my-4 p-2
+    my-4 p-2 w-56
     border border-solid border-red-300 rounded-md;
   }
   .error_btn {
-    @apply w-5 h-5 rounded-full bg-red-100 text-white;
+    @apply w-5 h-5 pb-3 text-white;
   }
 }

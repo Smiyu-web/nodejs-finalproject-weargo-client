@@ -44,10 +44,6 @@ const Signup = React.forwardRef((props, ref) => {
   return (
     <div className="pt-28 flex flex-col items-center" ref={ref}>
       <h2 className="py-6">Sign Up</h2>
-      <ErrorNotice
-        message="err.response.data.msg"
-        clearError={() => setError(undefined)}
-      />
 
       {error && (
         <ErrorNotice message={error} clearError={() => setError(undefined)} />
