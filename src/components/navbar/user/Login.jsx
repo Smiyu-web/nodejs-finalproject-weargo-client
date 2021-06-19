@@ -1,13 +1,15 @@
 import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
+import { useHistory } from "react-router-dom";
 
 import Link from "next/link";
 import Axios from "axios";
 import { setCurrentUser, login } from "../../../features/userSlice";
 
 const Signup = React.forwardRef((props, ref) => {
-  const isUser = useSelector(setCurrentUser);
   const dispatch = useDispatch();
+  const history = useHistory();
+  const isUser = useSelector(setCurrentUser);
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -23,10 +25,8 @@ const Signup = React.forwardRef((props, ref) => {
         loginUser
       );
 
-      // setUserData(loginRef);
       dispatch(login(loginRef.data.user));
-
-      // isUser(loginRef);
+      // history.push("/");
     } catch (err) {
       console.log(err.response.data.msg);
     }
