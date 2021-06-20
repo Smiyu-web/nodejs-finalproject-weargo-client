@@ -1,82 +1,35 @@
 import React, { useState } from "react";
-import { Drawer, Button, Space } from "antd";
+import Menu from "./Menu";
+
+import { faBars, faTimes } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const Hamburger = () => {
-  const [visible, setVisible] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
 
-  const showDrawer = () => {
-    setVisible(true);
+  const handleMenuOpen = () => {
+    setMenuOpen(true);
   };
 
-  const onClose = () => {
-    setVisible(false);
+  const handleMenuClose = () => {
+    setMenuOpen(false);
   };
 
   return (
-    <>
-      <Space>
-        <Button type="primary" onClick={showDrawer}>
-          Open
-        </Button>
-      </Space>
-      <Drawer
-        title="Basic Drawer"
-        placement="left"
-        closable={false}
-        onClose={onClose}
-        visible={visible}
-        key="left"
-        className="bg-red-500"
-      >
-        <p>Some contents...</p>
-        <p>Some contents...</p>
-        <p>Some contents...</p>
-      </Drawer>
-    </>
+    <div className="h-screen fixed">
+      {!menuOpen ? (
+        <div className="menu_bar" onClick={handleMenuOpen}>
+          <FontAwesomeIcon icon={faBars} size="lg" />
+        </div>
+      ) : (
+        <div className="text-white menu_bar z-10" onClick={handleMenuClose}>
+          <FontAwesomeIcon icon={faTimes} size="lg" />
+        </div>
+      )}
+
+      <Menu isOpen={menuOpen} />
+    </div>
   );
 };
 
 export default Hamburger;
-
-// class App extends React.Component {
-//   state = { visible: false, placement: "left" };
-
-//   showDrawer = () => {
-//     this.setState({
-//       visible: true,
-//     });
-//   };
-
-//   onClose = () => {
-//     this.setState({
-//       visible: false,
-//     });
-//   };
-
-//   render() {
-//     const { placement, visible } = this.state;
-//     return (
-//       <>
-//         <Space>
-//           <Button type="primary" onClick={this.showDrawer}>
-//             Open
-//           </Button>
-//         </Space>
-//         <Drawer
-//           title="Basic Drawer"
-//           placement="left"
-//           closable={false}
-//           onClose={this.onClose}
-//           visible={visible}
-//           key="left"
-//         >
-//           <p>Some contents...</p>
-//           <p>Some contents...</p>
-//           <p>Some contents...</p>
-//         </Drawer>
-//       </>
-//     );
-//   }
-// }
-
-// ReactDOM.render(<App />, mountNode);

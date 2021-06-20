@@ -4,6 +4,17 @@
 @tailwind components;
 @tailwind utilities;
 
+@keyframes SlideIn {
+  0% {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
 @layer base {
   html,
   body {
@@ -44,12 +55,15 @@
   label {
     @apply text-xs text-gray2;
   }
+  Link {
+    @apply cursor-pointer;
+  }
 }
 
 @layer components {
   .navbar_wrapper {
     @apply fixed flex justify-between w-screen
-    pt-4 pb-3 px-4 z-50 bg-white
+    pb-3 z-40 bg-white
     border-b border-solid border-lightGray shadow;
   }
   .hero_wrap {
@@ -96,10 +110,11 @@
     @apply py-2 bg-white border-b border-gray border-solid;
   }
   .select_input {
-    @apply py-2 bg-white border border-gray border-solid;
+    @apply py-2 bg-white border border-gray 
+    border-solid;
   }
   .input_btn {
-    @apply w-24 h-10 my-8 
+    @apply w-24 h-10 my-8 cursor-pointer 
     border border-gray border-solid rounded-md bg-gray
     text-white font-semibold tracking-wider  
     outline-none focus:outline-none;
@@ -114,5 +129,16 @@
   }
   .error_btn {
     @apply w-5 h-5 pb-3 text-white;
+  }
+  .hamburger_menu {
+    @apply w-56 h-screen absolute bg-gray;
+  }
+  .hamburger_ul {
+    @apply text-white text-sm font-semibold text-center;
+  }
+  .menu_bar {
+    @apply absolute cursor-pointer 
+    top-0 text-center pt-4 pl-4
+    font-semibold;
   }
 }

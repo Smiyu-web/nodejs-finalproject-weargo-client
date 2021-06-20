@@ -1,11 +1,12 @@
 import React, { useEffect } from "react";
 import Link from "next/link";
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
 
-import { faUser, faSearch, faBars } from "@fortawesome/free-solid-svg-icons";
+import { faUser, faSearch } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import { setCurrentUser } from "../../features/userSlice";
+import Hamburger from "./hamburger/Hamburger";
 
 const Nabvar = React.forwardRef((props, ref) => {
   const isUser = useSelector(setCurrentUser);
@@ -15,17 +16,19 @@ const Nabvar = React.forwardRef((props, ref) => {
   return (
     <div className="navbar_wrapper" ref={ref}>
       <div>
-        <FontAwesomeIcon icon={faBars} size="lg" />
+        <Hamburger />
       </div>
-      <div className="flex">
+      <div className="flex pt-4 pr-4">
         <div className="mr-2 mt-1 text-xs">
           Hello,&nbsp;
           {isUser.name ? isUser.name : "guest"}
         </div>
-        <div>
+        <div className="cursor-pointer">
           <Link href="/user/signup">
             <FontAwesomeIcon icon={faUser} size="lg" className="mr-3" />
           </Link>
+        </div>
+        <div className="cursor-pointer">
           <Link href="/style/search">
             <FontAwesomeIcon icon={faSearch} size="lg" />
           </Link>
