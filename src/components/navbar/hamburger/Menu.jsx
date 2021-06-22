@@ -44,23 +44,6 @@ const Menu = (props) => {
     );
   });
 
-  // const ListUserItem = UserMenus.map((userMenu, index) => {
-  //   return (
-  //     <Link href={userMenu.link} key={index}>
-  //       <li
-  //         className="mb-8"
-  //         style={{
-  //           opacity: "0",
-  //           animation: "1s SlideIn forwards",
-  //           animationDelay: userMenu.delay,
-  //         }}
-  //       >
-  //         {userMenu.text}
-  //       </li>
-  //     </Link>
-  //   );
-  // });
-
   return (
     <div>
       {open ? (
@@ -71,30 +54,7 @@ const Menu = (props) => {
             animation: "1s SlideIn forwards",
           }}
         >
-          <ul className="hamburger_ul mt-20">
-            <Link href="/user/login">
-              <li
-                style={{
-                  opacity: "0",
-                  animation: "1s SlideIn forwards",
-                  animationDelay: "0.1s",
-                }}
-              >
-                Signup or Login
-              </li>
-            </Link>
-          </ul>
-          <div className="flex justify-center">
-            <span
-              className="block w-16 h-px bg-white my-8"
-              style={{
-                opacity: "0",
-                animation: "1s SlideIn forwards",
-                animationDelay: "0.2s",
-              }}
-            ></span>
-          </div>
-          {/* {!isUser ? (
+          {!isUser ? (
             <>
               <ul className="hamburger_ul mt-20">
                 <Link href="/user/login">
@@ -122,7 +82,7 @@ const Menu = (props) => {
             </>
           ) : (
             <>
-              <ul className="hamburger_ul mt-20">
+              <ul className="hamburger_ul mt-20 ">
                 <Link href="/user/login">
                   <li
                     style={{
@@ -130,6 +90,7 @@ const Menu = (props) => {
                       animation: "1s SlideIn forwards",
                       animationDelay: "0.1s",
                     }}
+                    className="my-8"
                   >
                     Log out
                   </li>
@@ -142,7 +103,7 @@ const Menu = (props) => {
                       animationDelay: "0.2s",
                     }}
                   >
-                    Search
+                    Add style
                   </li>
                 </Link>
               </ul>
@@ -157,8 +118,8 @@ const Menu = (props) => {
                 ></span>
               </div>
             </>
-          )} */}
-          <ul className="hamburger_ul">{!isUser ? ListItem : ListUserItem}</ul>
+          )}
+          <ul className="hamburger_ul">{ListItem}</ul>
         </div>
       ) : null}
     </div>

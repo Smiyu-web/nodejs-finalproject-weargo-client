@@ -5,6 +5,7 @@ import { useHistory } from "react-router-dom";
 import Link from "next/link";
 import Axios from "axios";
 import { setCurrentUser, login } from "../../../features/userSlice";
+import ErrorNotice from "../../ui/ErrorNotice";
 
 const Signup = React.forwardRef((props, ref) => {
   const dispatch = useDispatch();
@@ -13,6 +14,7 @@ const Signup = React.forwardRef((props, ref) => {
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [error, setError] = useState();
 
   useEffect(() => console.log(isUser), [isUser]);
 
@@ -25,16 +27,23 @@ const Signup = React.forwardRef((props, ref) => {
         loginUser
       );
 
+      // dispatch(login({ user: loginRef.data.user }));
       dispatch(login(loginRef.data.user));
+
       // history.push("/");
     } catch (err) {
-      console.log(err.response.data.msg);
+      err.response.data.msg && setError(err.response.data.msg);
     }
   };
 
   return (
     <div className="pt-28 flex flex-col items-center" ref={ref}>
       <h2 className="py-6">Log In</h2>
+
+      {error && (
+        <ErrorNotice message={error} clearError={() => setError(undefined)} />
+      )}
+
       <div>
         <form onSubmit={submit}>
           <div className="input_wrapper">

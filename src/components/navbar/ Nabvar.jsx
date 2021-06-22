@@ -11,7 +11,7 @@ import Hamburger from "./hamburger/Hamburger";
 const Nabvar = React.forwardRef((props, ref) => {
   const isUser = useSelector(setCurrentUser);
 
-  useEffect(() => console.log(isUser.name), [isUser]);
+  useEffect(() => console.log(isUser), [isUser]);
 
   return (
     <div className="navbar_wrapper" ref={ref}>

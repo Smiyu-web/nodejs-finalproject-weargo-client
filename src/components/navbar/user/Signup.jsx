@@ -48,6 +48,7 @@ const Signup = React.forwardRef((props, ref) => {
       {error && (
         <ErrorNotice message={error} clearError={() => setError(undefined)} />
       )}
+
       <div>
         <form onSubmit={submit}>
           <div className="input_wrapper">
