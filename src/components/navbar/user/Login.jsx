@@ -1,22 +1,22 @@
 import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { useHistory } from "react-router-dom";
+import { useRouter } from "next/router";
 
 import Link from "next/link";
 import Axios from "axios";
 import { setCurrentUser, login } from "../../../features/userSlice";
 import ErrorNotice from "../../ui/ErrorNotice";
 
-const Signup = React.forwardRef((props, ref) => {
+const Signup = () => {
   const dispatch = useDispatch();
-  const history = useHistory();
   const isUser = useSelector(setCurrentUser);
+  const router = useRouter();
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState();
 
-  useEffect(() => console.log(isUser), [isUser]);
+  // useEffect(() => console.log(isUser), [isUser]);
 
   const submit = async (e) => {
     e.preventDefault();
@@ -27,17 +27,17 @@ const Signup = React.forwardRef((props, ref) => {
         loginUser
       );
 
-      // dispatch(login({ user: loginRef.data.user }));
-      dispatch(login(loginRef.data.user));
+      // dispatch(login({ user: loginRef.data.user, token: loginRef.data.token }));
+      localStorage.setItem("auth-token", loginRef.data.token);
 
-      // history.push("/");
+      router.push("/");
     } catch (err) {
-      err.response.data.msg && setError(err.response.data.msg);
+      err.response?.data.msg && setError(err.response.data.msg);
     }
   };
 
   return (
-    <div className="pt-28 flex flex-col items-center" ref={ref}>
+    <div className="pt-28 flex flex-col items-center">
       <h2 className="py-6">Log In</h2>
 
       {error && (
@@ -77,6 +77,6 @@ const Signup = React.forwardRef((props, ref) => {
       </div>
     </div>
   );
-});
+};
 
 export default Signup;

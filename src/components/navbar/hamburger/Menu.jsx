@@ -95,7 +95,7 @@ const Menu = (props) => {
                     Log out
                   </li>
                 </Link>
-                <Link href="/style/search">
+                <Link href="/style/add-style">
                   <li
                     style={{
                       opacity: "0",

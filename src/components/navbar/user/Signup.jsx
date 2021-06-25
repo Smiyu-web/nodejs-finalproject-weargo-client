@@ -7,7 +7,7 @@ import Link from "next/link";
 import { login } from "../../../features/userSlice";
 import ErrorNotice from "../../ui/ErrorNotice";
 
-const Signup = React.forwardRef((props, ref) => {
+const Signup = () => {
   const dispatch = useDispatch();
 
   const [name, setName] = useState();
@@ -42,7 +42,7 @@ const Signup = React.forwardRef((props, ref) => {
   };
 
   return (
-    <div className="pt-28 flex flex-col items-center" ref={ref}>
+    <div className="pt-28 flex flex-col items-center">
       <h2 className="py-6">Sign Up</h2>
 
       {error && (
@@ -100,6 +100,6 @@ const Signup = React.forwardRef((props, ref) => {
       </div>
     </div>
   );
-});
+};
 
 export default Signup;
