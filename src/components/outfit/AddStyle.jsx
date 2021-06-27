@@ -13,8 +13,7 @@ const AddStyle = () => {
   const [error, setError] = useState();
 
   const isUser = useSelector(setCurrentUser);
-  const userId = isUser.user?.id;
-  console.log("addstyle " + userId);
+  const userId = isUser.user?._id;
 
   const submit = async (e) => {
     e.preventDefault();

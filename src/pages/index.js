@@ -12,6 +12,8 @@ export default function Home() {
   const dispatch = useDispatch();
   const isUser = useSelector(setCurrentUser);
 
+  console.log("index: " + isUser.user);
+
   useEffect(() => {
     const checkLoggedIn = async () => {
       let token = localStorage.getItem("auth-token");
@@ -43,8 +45,10 @@ export default function Home() {
           headers: { "x-auth-token": token },
         })
           .then((response) => {
+            console.log(response.data);
             dispatch(
               // login({ user: loginRef.data.user, token: loginRef.data.token })
+
               login({ user: response.data.users, token: token })
             );
           })

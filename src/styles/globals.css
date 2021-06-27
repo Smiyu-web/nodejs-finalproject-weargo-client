@@ -141,4 +141,19 @@
     top-0 text-center pt-4 pl-4
     font-semibold;
   }
+  .detail_card {
+    @apply w-60 h-lg border border-gray border-solid
+    flex items-center flex-col;
+  }
+  .d_season {
+    @apply mr-4;
+  }
+  .d_likes {
+    @apply border border-darkGray border-solid rounded-2xl
+    flex justify-center w-12 pt-1 mr-2;
+  }
+  .d_save {
+    @apply border border-darkGray border-solid rounded-2xl
+    flex justify-center w-12 py-1 mr-2;
+  }
 }
