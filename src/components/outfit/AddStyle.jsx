@@ -9,11 +9,14 @@ const AddStyle = () => {
   const [title, setTitle] = useState();
   const [season, setSeason] = useState();
   const [weather, setWeather] = useState();
-  const [tags, setTags] = useState([]);
+  const [tags, setTags] = useState();
+  const [image, setImage] = useState();
   const [error, setError] = useState();
 
   const isUser = useSelector(setCurrentUser);
   const userId = isUser.user?._id;
+
+  console.log(image);
 
   const submit = async (e) => {
     e.preventDefault();
@@ -25,8 +28,19 @@ const AddStyle = () => {
         weather,
         userId,
         tags,
+        image,
         // likeCount,
       };
+
+      // const formData = new FormData();
+
+      // formData.append("title", title);
+      // formData.append("season", season);
+      // formData.append("weather", weather);
+      // formData.append("userId", userId);
+      // formData.append("tags", tags);
+      // formData.append("image", image);
+
       await Axios.post("http://localhost:4000/style/add-style", newStyle);
       console.log("added " + title);
     } catch (err) {
@@ -43,13 +57,13 @@ const AddStyle = () => {
       )}
 
       <div>
-        <form onSubmit={submit}>
+        <form onSubmit={submit} encType="multiple/form-data">
           <div className="input_wrapper">
             <label>Title</label>
             <input
               type="title"
-              id="add-title"
-              name="add-title"
+              id="title"
+              name="title"
               onChange={(e) => setTitle(e.target.value)}
             />
           </div>
@@ -77,7 +91,7 @@ const AddStyle = () => {
               className="bg-white"
               style={{ textAlignLast: "center" }}
               type="text"
-              name="season"
+              name="weather"
               onChange={(e) => setWeather(e.target.value)}
             >
               <option value="all">all</option>
@@ -92,11 +106,21 @@ const AddStyle = () => {
             <label>tags</label>
             <textarea
               name="tags"
-              id="add-tags"
+              id="tags"
               cols="20"
               rows="3"
               onChange={(e) => setTags(e.target.value.split(","))}
             ></textarea>
+          </div>
+          <div className="flex flex-col p-2 pb-1 mb-2 w-56">
+            <label className="mb-2">Image</label>
+            <input
+              type="file"
+              name="image"
+              id="image"
+              filename="image"
+              onChange={(e) => setImage(e.target.files[0])}
+            />
           </div>
           <div className="text-center">
             <input className="input_btn" type="submit" value="Add" />

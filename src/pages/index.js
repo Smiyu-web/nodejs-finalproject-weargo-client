@@ -31,16 +31,6 @@ export default function Home() {
       );
 
       if (tokenRes.data) {
-        // const userRes = await Axios.get(`http://localhost:4000/users/`, {
-        //   headers: { "x-auth-token": token },
-        // });
-
-        // console.log("userRes: " + userRes.data);
-
-        // dispatch(
-        //   // login({ user: loginRef.data.user, token: loginRef.data.token })
-        //   login({ user: userRes.data, token: token })
-        // );
         Axios.get(`http://localhost:4000/users/`, {
           headers: { "x-auth-token": token },
         })
