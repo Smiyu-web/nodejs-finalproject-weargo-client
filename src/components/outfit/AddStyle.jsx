@@ -22,26 +22,26 @@ const AddStyle = () => {
     e.preventDefault();
 
     try {
-      const newStyle = {
-        title,
-        season,
-        weather,
-        userId,
-        tags,
-        image,
-        // likeCount,
-      };
+      // const newStyle = {
+      //   title,
+      //   season,
+      //   weather,
+      //   userId,
+      //   tags,
+      //   image,
+      //   // likeCount,
+      // };
 
-      // const formData = new FormData();
+      const formData = new FormData();
 
-      // formData.append("title", title);
-      // formData.append("season", season);
-      // formData.append("weather", weather);
-      // formData.append("userId", userId);
-      // formData.append("tags", tags);
-      // formData.append("image", image);
+      formData.append("title", title);
+      formData.append("season", season);
+      formData.append("weather", weather);
+      formData.append("userId", userId);
+      formData.append("tags", tags);
+      formData.append("image", image);
 
-      await Axios.post("http://localhost:4000/style/add-style", newStyle);
+      await Axios.post("http://localhost:4000/style/add-style", formData);
       console.log("added " + title);
     } catch (err) {
       console.log(err.response?.data.msg) && setError(err.response.data.msg);

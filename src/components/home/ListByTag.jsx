@@ -1,30 +1,35 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import Axios from "axios";
+
 import ImgWrapper from "../ui/ImgWrapper";
 
 const ListByTag = () => {
+  const [data, setData] = useState();
+
+  useEffect(async () => {
+    const result = await Axios("http://localhost:4000/style/");
+    setData(result.data);
+    console.log(result);
+  }, []);
+
   return (
     <div className="mt-8 mx-9">
       <h6 className="mb-2 font-thin">#spring</h6>
       <div className="flex justify-center">
         <div className="grid grid-flow-col grid-cols-3 gap-4 text-center">
-          <ImgWrapper
-            className="shadow-lg"
-            src="/outfit.jpeg"
-            alt="outfit"
-            user="@koa0403"
-          />
-          <ImgWrapper
-            className="shadow-md"
-            src="/outfit.jpeg"
-            alt="outfit"
-            user="@koa0403"
-          />
-          <ImgWrapper
-            className="shadow-md"
-            src="/outfit.jpeg"
-            alt="outfit"
-            user="@koa0403"
-          />
+          {data.map((result) => {
+            return (
+              <>
+                <p>{result.title}</p>
+                <ImgWrapper
+                  className="shadow-lg"
+                  src={result.image}
+                  alt="outfit"
+                  user={result.userId}
+                />
+              </>
+            );
+          })}
         </div>
       </div>
     </div>

@@ -156,4 +156,9 @@
     @apply border border-darkGray border-solid rounded-2xl
     flex justify-center w-12 py-1 mr-2;
   }
+  .editor_container {
+    @apply absolute w-20 flex flex-col
+    p-1 border border-lightGray border-solid shadow
+    bg-white top-5 right-0 z-50;
+  }
 }

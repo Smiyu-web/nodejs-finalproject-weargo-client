@@ -3,6 +3,7 @@ import Link from "next/link";
 import { useSelector } from "react-redux";
 
 import { setCurrentUser } from "../../../features/userSlice";
+import Logout from "./Logout";
 
 const Menu = (props) => {
   const isUser = useSelector(setCurrentUser);
@@ -83,18 +84,7 @@ const Menu = (props) => {
           ) : (
             <>
               <ul className="hamburger_ul mt-20 ">
-                <Link href="/user/login">
-                  <li
-                    style={{
-                      opacity: "0",
-                      animation: "1s SlideIn forwards",
-                      animationDelay: "0.1s",
-                    }}
-                    className="my-8"
-                  >
-                    Log out
-                  </li>
-                </Link>
+                <Logout />
                 <Link href="/style/add-style">
                   <li
                     style={{

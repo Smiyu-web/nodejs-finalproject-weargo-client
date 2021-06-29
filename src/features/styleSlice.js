@@ -1,9 +1,9 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-const userSlice = createSlice({
-  name: "user",
+const styleSlice = createSlice({
+  name: "style",
   initialState: {
-    currentUser: "",
+    styles: {},
   },
   reducers: {
     login: (state, action) => {
@@ -19,4 +19,4 @@ export const { login, logout } = userSlice.actions;
 
 export const setCurrentUser = (state) => state.user.currentUser;
 
-export default userSlice.reducer;
+export default styleSlice.reducer;
