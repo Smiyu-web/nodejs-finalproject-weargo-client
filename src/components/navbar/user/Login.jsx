@@ -1,22 +1,17 @@
-import React, { useState, useEffect } from "react";
-import { useSelector, useDispatch } from "react-redux";
+import React, { useState } from "react";
+import { useDispatch } from "react-redux";
 import { useRouter } from "next/router";
 
 import Link from "next/link";
 import Axios from "axios";
-import { setCurrentUser, login } from "../../../features/userSlice";
 import ErrorNotice from "../../ui/ErrorNotice";
 
 const Signup = () => {
-  const dispatch = useDispatch();
-  const isUser = useSelector(setCurrentUser);
   const router = useRouter();
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState();
-
-  // useEffect(() => console.log(isUser), [isUser]);
 
   const submit = async (e) => {
     e.preventDefault();

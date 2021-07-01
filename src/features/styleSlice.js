@@ -3,20 +3,17 @@ import { createSlice } from "@reduxjs/toolkit";
 const styleSlice = createSlice({
   name: "style",
   initialState: {
-    styles: {},
+    listStyles: [],
   },
   reducers: {
-    login: (state, action) => {
-      state.currentUser = action.payload;
-    },
-    logout: (state, action) => {
-      state.currentUser = "";
+    setListStyles: (state, action) => {
+      state.listStyles = action.payload;
     },
   },
 });
 
-export const { login, logout } = userSlice.actions;
+export const { setListStyles } = styleSlice.actions;
 
-export const setCurrentUser = (state) => state.user.currentUser;
+export const selectListStyles = (state) => state.style.listStyles;
 
 export default styleSlice.reducer;

@@ -22,16 +22,6 @@ const AddStyle = () => {
     e.preventDefault();
 
     try {
-      // const newStyle = {
-      //   title,
-      //   season,
-      //   weather,
-      //   userId,
-      //   tags,
-      //   image,
-      //   // likeCount,
-      // };
-
       const formData = new FormData();
 
       formData.append("title", title);

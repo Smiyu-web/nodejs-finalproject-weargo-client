@@ -1,18 +1,15 @@
 import React, { useState, useEffect } from "react";
 import Axios from "axios";
-import { useSelector, useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 
 import Footer from "../components/footer/Footer";
 import Hero from "../components/hero/Hero";
 import ListByTag from "../components/home/ListByTag";
 import Layout from "../components/layout";
-import { setCurrentUser, login } from "../features/userSlice";
+import { login } from "../features/userSlice";
 
 export default function Home() {
   const dispatch = useDispatch();
-  const isUser = useSelector(setCurrentUser);
-
-  console.log("index: " + isUser.user);
 
   useEffect(() => {
     const checkLoggedIn = async () => {
@@ -35,17 +32,12 @@ export default function Home() {
           headers: { "x-auth-token": token },
         })
           .then((response) => {
-            console.log(response.data);
-            dispatch(
-              // login({ user: loginRef.data.user, token: loginRef.data.token })
-
-              login({ user: response.data.users, token: token })
-            );
+            // console.log(response.data);
+            dispatch(login({ user: response.data.users, token: token }));
           })
           .catch((err) => console.log(err));
       }
     };
-
     checkLoggedIn();
   }, []);
 
