@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { Link } from "next/link";
+import Link from "next/link";
 import Axios from "axios";
 
 import ImgWrapper from "../ui/ImgWrapper";
@@ -53,12 +53,14 @@ const ListByTag = () => {
                 return (
                   <div key={index}>
                     <Link href={`/style/${data.id}`}>
-                      <ImgWrapper
-                        className="shadow-lg"
-                        src={data.image}
-                        alt="outfit"
-                        user={data.userId}
-                      />
+                      <a>
+                        <ImgWrapper
+                          className="shadow-lg"
+                          src={data.image}
+                          alt="outfit"
+                          user={data.userId}
+                        />
+                      </a>
                     </Link>
                   </div>
                 );

@@ -12,13 +12,13 @@ const StyleDetail = (props) => {
     <div className="pt-20 flex justify-center">
       <div className="detail_card relative">
         <div className="mt-2">
-          <img src="/outfit.jpeg" alt="outfit" className="w-56" />
+          <img src={props.img} alt="outfit" className="w-56" />
         </div>
         <div className="absolute top-3 right-4 text-gray">
           <Editor />
         </div>
         <div>
-          <div className="text-xs text-right mr-2 text-gray">{props._id}</div>
+          <div className="text-xs text-right mr-2 text-gray">{props.id}</div>
           <div className="flex ml-2">
             <h6 className="d_season">{props.season}</h6>
             <h6 className="d_weather">{props.weather}</h6>
