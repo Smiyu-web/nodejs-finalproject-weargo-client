@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
+import { Link } from "next/link";
 import Axios from "axios";
 
 import ImgWrapper from "../ui/ImgWrapper";
@@ -29,14 +30,14 @@ const ListByTag = () => {
 
   useEffect(async () => {
     try {
-      setLoading(true);
+      // setLoading(true);
       const result = await Axios("http://localhost:4000/style/");
       dispatch(setListStyles(result.data));
       console.log(result.data);
     } catch (err) {
       console.log(err);
     }
-    setLoading(false);
+    // setLoading(false);
   }, []);
 
   return (
@@ -51,12 +52,14 @@ const ListByTag = () => {
               {lists?.map((data, index) => {
                 return (
                   <div key={index}>
-                    <ImgWrapper
-                      className="shadow-lg"
-                      src={data.image}
-                      alt="outfit"
-                      user={data.userId}
-                    />
+                    <Link href={`/style/${data.id}`}>
+                      <ImgWrapper
+                        className="shadow-lg"
+                        src={data.image}
+                        alt="outfit"
+                        user={data.userId}
+                      />
+                    </Link>
                   </div>
                 );
               })}

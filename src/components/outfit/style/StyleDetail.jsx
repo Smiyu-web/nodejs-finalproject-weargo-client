@@ -7,7 +7,7 @@ import { faBookmark as farBookmark } from "@fortawesome/free-regular-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Editor from "./Editor";
 
-const StyleDetail = () => {
+const StyleDetail = (props) => {
   return (
     <div className="pt-20 flex justify-center">
       <div className="detail_card relative">
@@ -18,13 +18,13 @@ const StyleDetail = () => {
           <Editor />
         </div>
         <div>
-          <div className="text-xs text-right mr-2 text-gray">@koakoakoa</div>
+          <div className="text-xs text-right mr-2 text-gray">{props._id}</div>
           <div className="flex ml-2">
-            <h6 className="d_season">spring</h6>
-            <h6 className="d_weather">sunny</h6>
+            <h6 className="d_season">{props.season}</h6>
+            <h6 className="d_weather">{props.weather}</h6>
           </div>
           <div className="ml-2">
-            <h6 className="d_title">spring daytime date</h6>
+            <h6 className="d_title">{props.title}</h6>
           </div>
           <div className="flex justify-center">
             <span className="block w-48 h-px bg-gray my-4"></span>
