@@ -2,38 +2,38 @@ import React, { useState } from "react";
 import Axios from "axios";
 import { useSelector } from "react-redux";
 
-import ErrorNotice from "../ui/ErrorNotice";
-import { setCurrentUser } from "../../features/userSlice";
-import { createPost } from "../../api/api";
+import ErrorNotice from "../../ui/ErrorNotice";
+import { selectCurrentStyle } from "../../../features/styleSlice";
+import { updatePost } from "../../../api/api";
 
-const AddStyle = () => {
-  const [title, setTitle] = useState();
-  const [season, setSeason] = useState();
-  const [weather, setWeather] = useState();
-  const [tags, setTags] = useState();
-  const [image, setImage] = useState();
+const EditStyle = () => {
+  const styleId = useSelector(selectCurrentStyle);
+  console.log(styleId);
+
+  const postId = styleId._id;
+  const [title, setTitle] = useState(styleId.title);
+  const [season, setSeason] = useState(styleId.season);
+  const [weather, setWeather] = useState(styleId.weather);
+  const [tags, setTags] = useState(styleId.tags);
+  const [image, setImage] = useState(styleId.image);
   const [error, setError] = useState();
-
-  const isUser = useSelector(setCurrentUser);
-  const userId = isUser.user?._id;
-
-  console.log(image);
 
   const submit = async (e) => {
     e.preventDefault();
 
     try {
-      const formData = new FormData();
+      console.log(postId);
 
-      formData.append("title", title);
-      formData.append("season", season);
-      formData.append("weather", weather);
-      formData.append("userId", userId);
-      formData.append("tags", tags);
-      formData.append("image", image);
+      const updatedData = {
+        title,
+        season,
+        weather,
+        tags,
+        image,
+      };
 
-      await Axios.post("http://localhost:4000/style/add-style", formData);
-      console.log("added " + title);
+      await Axios.patch(`http://localhost:4000/style/${postId}`, updatedData);
+      console.log("update: " + title);
     } catch (err) {
       console.log(err.response?.data.msg) && setError(err.response.data.msg);
     }
@@ -41,7 +41,7 @@ const AddStyle = () => {
 
   return (
     <div className="pt-28 flex flex-col items-center">
-      <h2 className="py-6">Add style</h2>
+      <h2 className="py-6">Edit style</h2>
 
       {error && (
         <ErrorNotice message={error} clearError={() => setError(undefined)} />
@@ -55,6 +55,7 @@ const AddStyle = () => {
               type="title"
               id="title"
               name="title"
+              value={title}
               onChange={(e) => setTitle(e.target.value)}
             />
           </div>
@@ -66,6 +67,7 @@ const AddStyle = () => {
               style={{ textAlignLast: "center" }}
               type="text"
               name="season"
+              value={season}
               onChange={(e) => setSeason(e.target.value)}
             >
               <option value="all">all</option>
@@ -83,6 +85,7 @@ const AddStyle = () => {
               style={{ textAlignLast: "center" }}
               type="text"
               name="weather"
+              value={weather}
               onChange={(e) => setWeather(e.target.value)}
             >
               <option value="all">all</option>
@@ -100,6 +103,7 @@ const AddStyle = () => {
               id="tags"
               cols="20"
               rows="3"
+              value={tags}
               onChange={(e) => setTags(e.target.value.split(","))}
             ></textarea>
           </div>
@@ -110,6 +114,7 @@ const AddStyle = () => {
               name="image"
               id="image"
               filename="image"
+              // value={image}
               onChange={(e) => setImage(e.target.files[0])}
             />
           </div>
@@ -122,4 +127,4 @@ const AddStyle = () => {
   );
 };
 
-export default AddStyle;
+export default EditStyle;

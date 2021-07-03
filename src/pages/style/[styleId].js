@@ -1,23 +1,30 @@
-import React from "react";
-import { useSelector } from "react-redux";
+import React, { useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
 import { useRouter } from "next/router";
 
 import Layout from "../../components/layout";
 import StyleDetail from "../../components/outfit/style/StyleDetail";
-import { selectListStyles } from "../../features/styleSlice";
-import { getEventById } from "../../features/data";
+import { selectListStyles, setCurrentStyle } from "../../features/styleSlice";
+import { getDataById } from "../../features/findData";
 
 const StyleDetailPage = () => {
   const lists = useSelector(selectListStyles);
   const router = useRouter();
+  const dispatch = useDispatch();
 
   const eventId = router.query.eventId;
-  const event = getEventById(lists, eventId);
+  const event = getDataById(lists, eventId);
 
+  useEffect(() => {
+    dispatch(setCurrentStyle(event));
+    console.log(event);
+  }, [event]);
+
+  console.log(event);
   return (
     <Layout style="h-screen">
       <StyleDetail
-        id={event._id}
+        id={event.userId}
         season={event.season}
         weather={event.weather}
         title={event.title}

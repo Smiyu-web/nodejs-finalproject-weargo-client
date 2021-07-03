@@ -9,7 +9,6 @@ import { setCurrentUser } from "../../features/userSlice";
 
 const AddStylePage = () => {
   const isUser = useSelector(setCurrentUser);
-  console.log(isUser.user);
 
   return (
     <Layout style="h-screen">

@@ -1,15 +1,19 @@
+import { useSelector } from "react-redux";
+import { selectListStyles } from "./styleSlice";
+// const lists = useSelector(selectListStyles);
+
 export function getFeaturedEvents() {
-  return DUMMY_EVENTS.filter((event) => event.isFeatured);
+  return lists.filter((event) => event.isFeatured);
 }
 
 export function getAllEvents() {
-  return DUMMY_EVENTS;
+  return lists;
 }
 
 export function getFilteredEvents(dateFilter) {
   const { year, month } = dateFilter;
 
-  let filteredEvents = DUMMY_EVENTS.filter((event) => {
+  let filteredEvents = lists.filter((event) => {
     const eventDate = new Date(event.date);
     return (
       eventDate.getFullYear() === year && eventDate.getMonth() === month - 1
@@ -19,6 +23,6 @@ export function getFilteredEvents(dateFilter) {
   return filteredEvents;
 }
 
-export function getEventById(lists, id) {
+export function getDataById(lists, id) {
   return lists.find((event) => event.id === id);
 }
