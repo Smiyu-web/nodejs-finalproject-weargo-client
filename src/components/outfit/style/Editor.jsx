@@ -18,7 +18,7 @@ const Editor = ({ id }) => {
   return (
     <div>
       <FontAwesomeIcon icon={faEllipsisH} size="sm" onClick={handleOpen} />
-      {!modalOpen ? null : <EditorDropDown />}
+      {!modalOpen ? null : <EditorDropDown id={id} />}
     </div>
   );
 };

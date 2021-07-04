@@ -4,7 +4,6 @@ import { useSelector } from "react-redux";
 
 import ErrorNotice from "../../ui/ErrorNotice";
 import { selectCurrentStyle } from "../../../features/styleSlice";
-import { updatePost } from "../../../api/api";
 
 const EditStyle = () => {
   const styleId = useSelector(selectCurrentStyle);
@@ -22,8 +21,6 @@ const EditStyle = () => {
     e.preventDefault();
 
     try {
-      console.log(postId);
-
       const updatedData = {
         title,
         season,
@@ -33,7 +30,6 @@ const EditStyle = () => {
       };
 
       await Axios.patch(`http://localhost:4000/style/${postId}`, updatedData);
-      console.log("update: " + title);
     } catch (err) {
       console.log(err.response?.data.msg) && setError(err.response.data.msg);
     }

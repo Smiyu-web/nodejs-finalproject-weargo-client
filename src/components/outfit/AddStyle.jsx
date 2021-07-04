@@ -4,7 +4,6 @@ import { useSelector } from "react-redux";
 
 import ErrorNotice from "../ui/ErrorNotice";
 import { setCurrentUser } from "../../features/userSlice";
-import { createPost } from "../../api/api";
 
 const AddStyle = () => {
   const [title, setTitle] = useState();
@@ -16,8 +15,6 @@ const AddStyle = () => {
 
   const isUser = useSelector(setCurrentUser);
   const userId = isUser.user?._id;
-
-  console.log(image);
 
   const submit = async (e) => {
     e.preventDefault();
@@ -33,7 +30,6 @@ const AddStyle = () => {
       formData.append("image", image);
 
       await Axios.post("http://localhost:4000/style/add-style", formData);
-      console.log("added " + title);
     } catch (err) {
       console.log(err.response?.data.msg) && setError(err.response.data.msg);
     }

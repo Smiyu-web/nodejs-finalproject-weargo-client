@@ -15,7 +15,7 @@ const StyleDetail = (props) => {
           <img src={props.img} alt="outfit" className="w-56" />
         </div>
         <div className="absolute top-3 right-4 text-gray">
-          <Editor />
+          <Editor id={props._id} />
         </div>
         <div>
           <div className="text-xs text-right mr-2 text-gray">{props.id}</div>
