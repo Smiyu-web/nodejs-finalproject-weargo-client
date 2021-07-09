@@ -8,9 +8,14 @@ module.exports = {
         gray: "#787878",
         gray2: "#b0b0b0",
         lightGray: "#f2f2f2",
+        bg: "#EDD7C8",
+        pink: "#F2BFAE",
+        blue: "#BAD6D2"
       },
       fontFamily: {
         vollkorn: ["Vollkorn", "sans-serif"],
+        nunito: ["Nunito Sans", "sans-serif"],
+        league: ["League Script", "sans-serif"],
       },
       height: {
         sm: "28rem",

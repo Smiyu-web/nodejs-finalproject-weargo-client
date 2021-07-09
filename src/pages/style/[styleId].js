@@ -15,12 +15,13 @@ const StyleDetailPage = () => {
   const eventId = router.query.eventId;
   const event = getDataById(lists, eventId);
 
+  console.log(event);
+
   useEffect(() => {
     dispatch(setCurrentStyle(event));
     console.log(event);
   }, [event]);
 
-  console.log(event);
   return (
     <Layout style="h-screen">
       <StyleDetail

@@ -8,6 +8,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Editor from "./Editor";
 
 const StyleDetail = (props) => {
+  console.log("styledetail: " + props.title);
   return (
     <div className="pt-20 flex justify-center">
       <div className="detail_card relative">

@@ -16,13 +16,13 @@ const Hamburger = () => {
   };
 
   return (
-    <div className="h-screen fixed">
+    <div>
       {!menuOpen ? (
         <div className="menu_bar" onClick={handleMenuOpen}>
           <FontAwesomeIcon icon={faBars} size="lg" />
         </div>
       ) : (
-        <div className="text-white menu_bar z-10" onClick={handleMenuClose}>
+        <div className="menu_bar z-10" onClick={handleMenuClose}>
           <FontAwesomeIcon icon={faTimes} size="lg" />
         </div>
       )}

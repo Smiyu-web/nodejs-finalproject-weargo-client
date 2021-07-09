@@ -52,6 +52,7 @@ const ListByTag = () => {
               {lists?.map((data, index) => {
                 return (
                   <div key={index}>
+                    <p>{data.title}</p>
                     <Link href={`/style/${data.id}`}>
                       <a>
                         <ImgWrapper
