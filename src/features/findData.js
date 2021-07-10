@@ -24,5 +24,5 @@ export function getFilteredEvents(dateFilter) {
 }
 
 export function getDataById(lists, id) {
-  return lists.find((event) => event.id === id);
+  return lists.find((event) => event._id === id);
 }

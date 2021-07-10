@@ -12,25 +12,16 @@ const StyleDetailPage = () => {
   const router = useRouter();
   const dispatch = useDispatch();
 
-  const eventId = router.query.eventId;
-  const event = getDataById(lists, eventId);
-
-  console.log(event);
+  const styleId = router.query.styleId;
+  const data = getDataById(lists, styleId);
 
   useEffect(() => {
-    dispatch(setCurrentStyle(event));
-    console.log(event);
-  }, [event]);
+    dispatch(setCurrentStyle(data));
+  }, [data]);
 
   return (
     <Layout style="h-screen">
-      <StyleDetail
-        id={event.userId}
-        season={event.season}
-        weather={event.weather}
-        title={event.title}
-        img={event.image}
-      />
+      <StyleDetail data={data} />
     </Layout>
   );
 };
