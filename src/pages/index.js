@@ -4,7 +4,7 @@ import { useDispatch } from "react-redux";
 
 import Footer from "../components/footer/Footer";
 import Hero from "../components/hero/Hero";
-import ListByTag from "../components/home/ListByTag";
+import Feature from "../components/home/Feature";
 import Layout from "../components/layout";
 import { login } from "../features/userSlice";
 
@@ -45,9 +45,8 @@ export default function Home() {
     <div>
       <Layout>
         <Hero />
-        <ListByTag />
-        <ListByTag />
-        <ListByTag />
+        <Feature />
+
         <Footer />
       </Layout>
     </div>

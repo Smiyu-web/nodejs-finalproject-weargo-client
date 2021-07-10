@@ -2,15 +2,17 @@ import React from "react";
 import Axios from "axios";
 import Link from "next/link";
 import { useSelector } from "react-redux";
+import { useRouter } from "next/router";
 import { selectCurrentStyle } from "../../../features/styleSlice";
 
 const EditorDropDown = ({ id }) => {
+  const router = useRouter();
   const styleId = useSelector(selectCurrentStyle);
   const postId = styleId._id;
 
   const handleDelete = async () => {
     await Axios.delete(`http://localhost:4000/style/${postId}`);
-    console.log("deleted: " + postId);
+    router.push("/");
   };
 
   return (

@@ -1,15 +1,18 @@
 import React, { useState } from "react";
 import Axios from "axios";
 import { useSelector } from "react-redux";
+import { useRouter } from "next/router";
 
 import ErrorNotice from "../ui/ErrorNotice";
 import { setCurrentUser } from "../../features/userSlice";
 
 const AddStyle = () => {
+  const router = useRouter();
+
   const [title, setTitle] = useState();
   const [season, setSeason] = useState();
   const [weather, setWeather] = useState();
-  const [tags, setTags] = useState();
+  const [tags, setTags] = useState([]);
   const [image, setImage] = useState();
   const [error, setError] = useState();
 
@@ -33,10 +36,11 @@ const AddStyle = () => {
     } catch (err) {
       console.log(err.response?.data.msg) && setError(err.response.data.msg);
     }
+    // router.push(`/style/${_id}`);
   };
 
   return (
-    <div className="pt-28 flex flex-col items-center">
+    <div className="pt-4 flex flex-col items-center">
       <h2 className="py-6">Add style</h2>
 
       {error && (
@@ -96,7 +100,7 @@ const AddStyle = () => {
               id="tags"
               cols="20"
               rows="3"
-              onChange={(e) => setTags(e.target.value.split(","))}
+              onChange={(e) => setTags(e.target.value.split(" "))}
             ></textarea>
           </div>
           <div className="flex flex-col p-2 pb-1 mb-2 w-56">

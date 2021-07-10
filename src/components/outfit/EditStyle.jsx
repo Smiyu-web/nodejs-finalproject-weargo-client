@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import Axios from "axios";
 import { useSelector } from "react-redux";
 
-import ErrorNotice from "../../ui/ErrorNotice";
-import { selectCurrentStyle } from "../../../features/styleSlice";
+import ErrorNotice from "../ui/ErrorNotice";
+import { selectCurrentStyle } from "../../features/styleSlice";
 
 const EditStyle = () => {
   const styleId = useSelector(selectCurrentStyle);

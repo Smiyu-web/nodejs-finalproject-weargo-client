@@ -1,7 +1,7 @@
 import React from "react";
 
 import Layout from "../../components/layout";
-import EditStyle from "../../components/outfit/style/EditStyle";
+import EditStyle from "../../components/outfit/EditStyle";
 
 const EditStylePage = () => {
   return (

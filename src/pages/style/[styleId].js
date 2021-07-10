@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { useRouter } from "next/router";
 
 import Layout from "../../components/layout";
-import StyleDetail from "../../components/outfit/style/StyleDetail";
+import StyleDetail from "../../components/outfit/style-detail/StyleDetail";
 import { selectListStyles, setCurrentStyle } from "../../features/styleSlice";
 import { getDataById } from "../../features/findData";
 

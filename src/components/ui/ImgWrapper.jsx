@@ -3,10 +3,13 @@ import React from "react";
 const ImgWrapper = (props) => {
   return (
     <div className="img_wrapper">
-      <img src={props.src} alt={props.alt} />
-      <div className="mask">
-        <div className="caption">{props.user}</div>
+      <div>
+        <img src={props.src} alt={props.alt} />
+        <div className="mask">
+          <div className="caption">{props.user}</div>
+        </div>
       </div>
+      <div></div>
     </div>
   );
 };
