@@ -4,7 +4,7 @@ import { faEllipsisH } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import EditorDropDown from "./EditorDropDown";
 
-const Editor = ({ id }) => {
+const Editor = ({ data }) => {
   const [modalOpen, setModalOpen] = useState(false);
 
   const handleOpen = () => {
@@ -18,7 +18,7 @@ const Editor = ({ id }) => {
   return (
     <div>
       <FontAwesomeIcon icon={faEllipsisH} size="sm" onClick={handleOpen} />
-      {!modalOpen ? null : <EditorDropDown id={id} />}
+      {!modalOpen ? null : <EditorDropDown id={data._id} />}
     </div>
   );
 };

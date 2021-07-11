@@ -4,7 +4,7 @@ const styleSlice = createSlice({
   name: "style",
   initialState: {
     listStyles: [],
-    currentStyle: {},
+    currentStyle: [],
   },
   reducers: {
     setListStyles: (state, action) => {
